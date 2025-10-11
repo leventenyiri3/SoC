@@ -66,13 +66,10 @@ void media_filter_scalar(int imgHeight, int imgWidth, int imgWidthF,
       uint8_t padded_r[32], padded_g[32], padded_b[32];
       memcpy(padded_r, r_vals, 25);
       memset(padded_r + 25, 255, 7);
-
       memcpy(padded_g, g_vals, 25);
       memset(padded_g + 25, 255, 7);
-
       memcpy(padded_b, b_vals, 25);
       memset(padded_b + 25, 255, 7);
-
 
       sort(padded_r,0,32);
       sort(padded_g,0,32);
@@ -80,7 +77,6 @@ void media_filter_scalar(int imgHeight, int imgWidth, int imgWidthF,
 
 			int wr_offset;
 			wr_offset = row*imgWidth*3 + col*3;
-
       
       *(imgDst + wr_offset + 0) = padded_r[12];
       *(imgDst + wr_offset + 1) = padded_g[12];
@@ -88,7 +84,4 @@ void media_filter_scalar(int imgHeight, int imgWidth, int imgWidthF,
 
     }
   }
-
-
-
 }
