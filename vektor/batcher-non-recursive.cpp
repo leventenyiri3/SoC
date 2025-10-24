@@ -15,57 +15,105 @@ void compare(uint8_t* array, int i, int j)
 
 void batcher_non_recursive(uint8_t* array)
 {
-  uint8_t a,b,c,d;
-  a = 0;
-  b = a+1;
-  c = a+2;
+  uint8_t d;
+
   d = 0;
 
-  compare(array, a, a+1); // ez a kettő még mehet párhuzamosan akár
-  compare(array, c, c+1); //
-  compare(array, a, a+2);
-  compare(array, b, b+2);
-  compare(array, b, b+1);
 
-  a = 4;
+  uint8_t inner_array[32] = {}; 
+  for(int i=0; i<32; i++)
+      inner_array[i] = *(array + i);
+  //ide nyilván ismétlés helyett logikusabb lenne ciklussal, de a párhuzamosításnál így talán jobban átlátom
+  for(int base=0; base<32; base+=4)
+  {
 
-  compare(array, a, a+1);
-  compare(array, c, c+1);
-  compare(array, a, a+2);
-  compare(array, b, b+2);
-  compare(array, b, b+1);
+  compare(inner_array, base, base+1); // ez a kettő még mehet párhuzamosan akár
+  compare(inner_array, base+2, base+3); //
+  compare(inner_array, base, base+2);
+  compare(inner_array, base+1, base+3);
+  compare(inner_array, base+1, base+2);
+
+  printf("\n");
+  printf("a = %d", base);
+  printf("\n");
+  for(int i=0; i<32; i++)
+    printf("%d ", inner_array[i]);
+
+  }
 
 
-/* Ez a 8-al megnövelt mehet párhuzamosan az előzővel */
-  a = 8;
-
-  compare(array, a, a+1);
-  compare(array, c, c+1);
-  compare(array, a, a+2);
-  compare(array, b, b+2);
-  compare(array, b, b+1);
-
-  a = 12;
-
-  compare(array, a, a+1);
-  compare(array, c, c+1);
-  compare(array, a, a+2);
-  compare(array, b, b+2);
-  compare(array, b, b+1);
-    
-
+// ez előtt lévők mehetnek full párhuzamosan, itt be kell várniuk
 /* Nagyobb mergelés itt kezdődik*/
 
-  compare(array, 0, 8);
-  compare(array, 4, 12);
-  compare(array, 4, 8);
-  compare(array, 2, 10);
-  compare(array, 6, 14);
-  compare(array, 6, 10);
-  compare(array, 0, 2);
-  compare(array, 4, 6);
-  compare(array, 8, 10);
-  compare(array, 12, 14);
+  compare(inner_array, 0+d, 8+d);
+  compare(inner_array, 4+d, 12+d);
+  compare(inner_array, 4+d, 8+d);
+  compare(inner_array, 2+d, 10+d);
+  compare(inner_array, 6+d, 14+d);
+  compare(inner_array, 6+d, 10+d);
+  compare(inner_array, 0+d, 2+d);
+  compare(inner_array, 4+d, 6+d);
+  compare(inner_array, 8+d, 10+d);
+  compare(inner_array, 12+d, 14+d);
+
+  d = 1;
+
+  compare(inner_array, 0+d, 8+d);
+  compare(inner_array, 4+d, 12+d);
+  compare(inner_array, 4+d, 8+d);
+  compare(inner_array, 2+d, 10+d);
+  compare(inner_array, 6+d, 14+d);
+  compare(inner_array, 6+d, 10+d);
+  compare(inner_array, 0+d, 2+d);
+  compare(inner_array, 4+d, 6+d);
+  compare(inner_array, 8+d, 10+d);
+  compare(inner_array, 12+d, 14+d);
+
+
+  d = 16;
+  
+  compare(inner_array, 0+d, 8+d);
+  compare(inner_array, 4+d, 12+d);
+  compare(inner_array, 4+d, 8+d);
+  compare(inner_array, 2+d, 10+d);
+  compare(inner_array, 6+d, 14+d);
+  compare(inner_array, 6+d, 10+d);
+  compare(inner_array, 0+d, 2+d);
+  compare(inner_array, 4+d, 6+d);
+  compare(inner_array, 8+d, 10+d);
+  compare(inner_array, 12+d, 14+d);
+  
+  d = 17;
+  
+  compare(inner_array, 0+d, 8+d);
+  compare(inner_array, 4+d, 12+d);
+  compare(inner_array, 4+d, 8+d);
+  compare(inner_array, 2+d, 10+d);
+  compare(inner_array, 6+d, 14+d);
+  compare(inner_array, 6+d, 10+d);
+  compare(inner_array, 0+d, 2+d);
+  compare(inner_array, 4+d, 6+d);
+  compare(inner_array, 8+d, 10+d);
+  compare(inner_array, 12+d, 14+d);
+
+  printf("\n");
+  printf("After sorting:\n");
+  for(int i=0; i<32; i++)
+    printf("%d ", inner_array[i]);
+}
+
+
+
+int main()
+{
+  uint8_t array[] = {6,3,8,1,0,4,7,2,9,5,3,6,0,8,1,7,4,2,5,9,6,3,0,7,1,4,8,2,5,9,6,0};
+
+  printf("Before sorting:\n");
+  for(int i=0; i<32; i++)
+    printf("%d ", array[i]);
+  
+  batcher_non_recursive(array);
+
 
 
 }
