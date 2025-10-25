@@ -6,7 +6,7 @@ CXX_FLAGS := -Wall -Wextra -std=c++17 -O3 -ggdb -fopenmp
 PRE_FLAGS := -MMD -MP
 
 # Project directory structure
-SRC := src
+SRC := vektor/src
 LIB := lib
 INC := include 
 MAINFILE := $(SRC)/batcher_main.cpp

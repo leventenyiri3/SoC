@@ -1,1 +1,1 @@
-build/timestamp.o: src/timestamp.cpp
+build/timestamp.o: vektor/src/timestamp.cpp

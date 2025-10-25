@@ -1,2 +1,2 @@
-build/batcher.o: src/batcher.cpp src/batcher.h
-src/batcher.h:
+build/batcher.o: vektor/src/batcher.cpp vektor/src/batcher.h
+vektor/src/batcher.h:
