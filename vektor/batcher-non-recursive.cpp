@@ -15,8 +15,8 @@ void compare(uint8_t* array, int i, int j)
 
 void batcher_non_recursive(uint8_t* array)
 {
-  uint8_t d;
-
+  uint8_t d, merge_index;
+  merge_index = 0;
   d = 0;
 
 
@@ -38,6 +38,22 @@ void batcher_non_recursive(uint8_t* array)
   printf("\n");
   for(int i=0; i<32; i++)
     printf("%d ", inner_array[i]);
+
+    if(base%8 == 0 && base != 0)
+    {
+      compare(inner_array, merge_index, merge_index+4);
+      compare(inner_array, merge_index+2, merge_index+6);
+      compare(inner_array, merge_index+2, merge_index+4);
+      compare(inner_array, merge_index+1, merge_index+5);
+      compare(inner_array, merge_index+3, merge_index+7);
+      compare(inner_array, merge_index+3, merge_index+5);
+
+      compare(inner_array, merge_index+1, merge_index+2);
+      compare(inner_array, merge_index+3, merge_index+4);
+      compare(inner_array, merge_index+5, merge_index+6);
+    }
+
+  
 
   }
 
