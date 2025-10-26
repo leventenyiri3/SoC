@@ -1,0 +1,1870 @@
+Breakpoint 1 at 0x1177: file odd-even-merge.c, line 6.
+Type commands for breakpoint(s) 1, one per line.
+End with a line saying just "end".
+Quit
+Breakpoint 1 at 0x1177: file odd-even-merge.c, line 6.
+Undefined command: "commmand".  Try "help".
+Type commands for breakpoint(s) 1, one per line.
+End with a line saying just "end".
+Starting program: /home/levente/git/Msc/SoC/odd-even-merge 
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.archlinux.org>
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=0, j=1) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=0, j=1) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=0, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=4) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=3) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=3) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=2, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=2, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=4) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=0, j=2) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=0, j=2) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=0, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=3) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=3) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=1, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=4) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=4, j=5) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=4, j=5) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=4, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=4, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=4, length=4) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=7) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=7) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=6, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=6, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=4, length=4) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=4, j=6) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=4, j=6) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=4, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=4, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=4, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=7) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=7) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=5, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=4, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=4, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=4, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=4, length=4) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=0, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=0, j=4) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=0, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=8, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=6) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=6) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=2, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=8, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=4) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=8, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=5) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=5) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=1, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=8, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=7) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=7) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=3, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=8, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=5) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=5) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=8, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=4) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=8) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=8, j=9) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=8, j=9) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=8, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=8, length=4) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=11) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=11) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=10, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=10, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=8, length=4) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=8, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=8, j=10) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=8, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=8, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=11) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=11) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=9, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=8, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=8, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=4) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=12, j=13) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=12, j=13) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=12, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=12, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=12, length=4) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=14, j=15) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=14, j=15) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=14, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=14, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=12, length=4) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=12, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=12, j=14) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=12, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=12, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=12, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=15) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=15) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=13, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=12, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=12, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=12, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=12, length=4) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=8, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=8, j=12) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=8, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=8, length=8, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=14) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=10, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=8, length=8, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=12) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=8, length=8, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=13) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=13) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=9, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=9, length=8, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=15) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=15) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=11, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=9, length=8, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=13) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=13) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=9, length=8, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=12) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=8, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=8, length=8) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=0, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=0, j=8) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=0, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=4) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=4, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=4, j=12) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=4, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=4) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=4, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=4, j=8) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=10) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=2, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=2, length=16, r=4) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=14) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=6, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=2, length=16, r=4) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=10) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=2, length=16, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=4) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=8) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=12) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=9) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=9) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=1, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=16, r=4) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=13) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=13) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=5, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=16, r=4) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=9) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=9) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=16, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=11) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=11) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=3, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=3, length=16, r=4) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=15) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=15) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=7, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=3, length=16, r=4) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#6  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=11) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=11) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=3, length=16, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=5) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=5) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=9) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=9) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=13) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=13) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=16, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=4) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=8) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=12) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=16) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:35
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=16, j=17) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=16, j=17) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=16, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=4) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=18, j=19) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=18, j=19) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=18, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=18, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=4) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=16, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=16, j=18) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=16, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=19) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=19) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=17, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:35
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=4) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=20, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=20, j=21) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=20, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=20, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=20, length=4) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=22, j=23) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=22, j=23) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=22, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=22, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=20, length=4) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=20, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=20, j=22) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=20, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=20, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=20, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=23) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=23) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=21, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=20, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=20, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:36
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=20, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=20, length=4) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=16, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=16, j=20) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=16, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=8, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=18, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=18, j=22) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=18, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=8, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=18, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=18, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=8, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=21) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=17, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=17, length=8, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=23) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=23) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=19, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=17, length=8, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#5  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=21) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=17, length=8, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=8) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=24, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=24, j=25) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=24, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=24, length=4) at odd-even-merge.c:35
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=26, j=27) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=26, j=27) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=26, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=26, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=24, length=4) at odd-even-merge.c:36
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=24, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=24, j=26) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=24, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=24, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=25, j=27) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=25, j=27) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=25, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=24, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=4) at odd-even-merge.c:37
+#4  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:35
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=24, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=4) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=28, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=28, j=29) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=28, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=28, length=2) at odd-even-merge.c:37
+#3  0x00005555555552f8 in sort (array=0x7fffffffdba0, start=28, length=4) at odd-even-merge.c:35
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=30, j=31) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=30, j=31) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=30, length=2, r=1) at odd-even-merge.c:26
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=30, length=2) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=28, length=4) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=28, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=28, j=30) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=28, length=4, r=2) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=28, length=4, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=28, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=29, j=31) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=29, j=31) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=29, length=4, r=2) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=28, length=4, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=28, length=4) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=28, length=4, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=28, length=4) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=24, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=24, j=28) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=24, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=24, length=8, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=26, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=26, j=30) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=26, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=24, length=8, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=26, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=26, j=28) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=24, length=8, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=25, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=25, j=29) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=25, length=8, r=4) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=25, length=8, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=31) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=31) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=27, length=8, r=4) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=25, length=8, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=29) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=25, length=8, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=28) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=24, length=8, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=24, length=8) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:36
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=16, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=16, j=24) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=16, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=4) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=20, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=20, j=28) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=20, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=4) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=20, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=20, j=24) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=18, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=18, j=26) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=18, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=18, length=16, r=4) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=22, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=22, j=30) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=22, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=18, length=16, r=4) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=22, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=22, j=26) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=18, length=16, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=18, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=18, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=22, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=22, j=24) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=26, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=26, j=28) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=25) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=17, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=17, length=16, r=4) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=29) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=21, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=17, length=16, r=4) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=25) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=17, length=16, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=27) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=27) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=19, length=16, r=8) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=19, length=16, r=4) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=31) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=31) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=23, length=16, r=8) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=19, length=16, r=4) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#6  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=27) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=27) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=19, length=16, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#5  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=21) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=25) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=29) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=17, length=16, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#4  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=24) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=28) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=16, length=16, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=16, length=16) at odd-even-merge.c:37
+#3  0x0000555555555312 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:36
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=0, j=16) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=0, j=16) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=0, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=8) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=8, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=8, j=24) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=8, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=8) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=8, j=16) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=8, j=16) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=8) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=4, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=4, j=20) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=4, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=4, length=32, r=8) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=12, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=12, j=28) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=12, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=4, length=32, r=8) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=12, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=12, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=4, length=32, r=8) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=4, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=4, j=8) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=12, j=16) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=12, j=16) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=20, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=20, j=24) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=18) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=2, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=2, length=32, r=8) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=26) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=10, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=2, length=32, r=8) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=18) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=2, length=32, r=8) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=22) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=6, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=6, length=32, r=8) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=14, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=14, j=30) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=14, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=6, length=32, r=8) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#5  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=14, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=14, j=22) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=6, length=32, r=8) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=10) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=14, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=14, j=18) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=22, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=22, j=26) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=2, length=32, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=2, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=2, j=4) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=6, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=6, j=8) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=10, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=10, j=12) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=14, j=16) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=14, j=16) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=18, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=18, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=22, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=22, j=24) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=26, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=26, j=28) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=2) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:20
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=17) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=17) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=1, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=8) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=25) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=9, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=8) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:20
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=17) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=17) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=8) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=21) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=5, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=5, length=32, r=8) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=29) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=13, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=5, length=32, r=8) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:21
+#4  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=21) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=5, length=32, r=8) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=9) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=9) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=17) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=17) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=25) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=4) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=19) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=19) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=3, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=3, length=32, r=8) at odd-even-merge.c:20
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=27) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=27) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=11, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=3, length=32, r=8) at odd-even-merge.c:21
+#3  0x0000555555555243 in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:20
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=19) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=19) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=3, length=32, r=8) at odd-even-merge.c:23
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=23) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=23) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=7, length=32, r=16) at odd-even-merge.c:26
+#2  0x0000555555555243 in merge (array=0x7fffffffdba0, start=7, length=32, r=8) at odd-even-merge.c:20
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=15, j=31) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=15, j=31) at odd-even-merge.c:6
+#1  0x00005555555552ba in merge (array=0x7fffffffdba0, start=15, length=32, r=16) at odd-even-merge.c:26
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=7, length=32, r=8) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#5  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#6  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#7  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=15, j=23) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=15, j=23) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=7, length=32, r=8) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#4  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#5  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#6  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=11) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=11) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=15, j=19) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=15, j=19) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=27) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=27) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=3, length=32, r=4) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:21
+#3  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#4  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#5  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=5) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=5) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=9) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=9) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=13) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=13) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=15, j=17) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=15, j=17) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=21) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=21) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=25) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=25) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=29) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=29) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=1, length=32, r=2) at odd-even-merge.c:23
+#2  0x000055555555525e in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:21
+#3  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#4  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=1, j=2) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=3, j=4) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=3, j=4) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=5, j=6) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=7, j=8) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=7, j=8) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=9, j=10) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=11, j=12) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=11, j=12) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=13, j=14) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=15, j=16) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=15, j=16) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=17, j=18) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=19, j=20) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=19, j=20) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=21, j=22) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=23, j=24) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=23, j=24) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=25, j=26) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=27, j=28) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=27, j=28) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+
+Breakpoint 1, compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+6	  if (array[i]>array[j])
+#0  compare (array=0x7fffffffdba0, i=29, j=30) at odd-even-merge.c:6
+#1  0x0000555555555284 in merge (array=0x7fffffffdba0, start=0, length=32, r=1) at odd-even-merge.c:23
+#2  0x0000555555555329 in sort (array=0x7fffffffdba0, start=0, length=32) at odd-even-merge.c:37
+#3  0x000055555555549b in main () at odd-even-merge.c:51
+[Inferior 1 (process 193164) exited normally]
