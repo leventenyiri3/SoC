@@ -14,80 +14,17 @@ void compare(uint8_t* array, int i, int j)
 
 }
 
-void batcher_non_recursive(uint8_t* array)
+void compare_4(uint8_t* array, uint8_t base)
 {
-  uint8_t merge_8, merge_16, merge_16_for, merge_32, base = 0;
-  merge_8 = 0;
-  merge_16 = 0;
-  merge_16_for = 0;
-  merge_32 = 0;
-  base = 0;
+  compare(array, base, base+1);
+  compare(array, base+2, base+3);
+  compare(array, base, base+2);
+  compare(array, base+1, base+3);
+  compare(array, base+1, base+2);
+}
 
-  #pragma unroll
-  for(int base=0; base<32; base += 4)
-  {
-    if(base != 0 && base%8 == 0)
-    {
-      compare(array, merge_8, merge_8+4);
-      compare(array, merge_8+2, merge_8+6);
-      compare(array, merge_8+2, merge_8+4);
-      compare(array, merge_8+1, merge_8+5);
-      compare(array, merge_8+3, merge_8+7);
-      compare(array, merge_8+3, merge_8+5);
-      compare(array, merge_8+1, merge_8+2);
-      compare(array, merge_8+3, merge_8+4);
-      compare(array, merge_8+5, merge_8+6);
-
-      merge_8 += 8;
-    }
-
-    if(merge_8 != 0 && base%16 == 0)
-    {
-      compare(array, merge_16, merge_16+8);
-      compare(array, merge_16+4, merge_16+12);
-      compare(array, merge_16+4, merge_16+8);
-      compare(array, merge_16+2, merge_16+10);
-      compare(array, merge_16+6, merge_16+14);
-      compare(array, merge_16+6, merge_16+10);
-      compare(array, merge_16+2, merge_16+4);
-      compare(array, merge_16+6, merge_16+8);
-      compare(array, merge_16+10, merge_16+12);
-
-      merge_16 += 1;
-
-      compare(array, merge_16, merge_16+8);
-      compare(array, merge_16+4, merge_16+12);
-      compare(array, merge_16+4, merge_16+8);
-      compare(array, merge_16+2, merge_16+10);
-      compare(array, merge_16+6, merge_16+14);
-      compare(array, merge_16+6, merge_16+10);
-      compare(array, merge_16+2, merge_16+4);
-      compare(array, merge_16+6, merge_16+8);
-      compare(array, merge_16+10, merge_16+12);
-
-      merge_16 = 16;
-
-      compare(array, merge_16_for+1, merge_16_for+2);
-      compare(array, merge_16_for+3, merge_16_for+4);
-      compare(array, merge_16_for+5, merge_16_for+6);
-      compare(array, merge_16_for+7, merge_16_for+8);
-      compare(array, merge_16_for+9, merge_16_for+10);
-      compare(array, merge_16_for+11, merge_16_for+12);
-      compare(array, merge_16_for+13, merge_16_for+14); 
-
-      merge_16_for += 16;
-    }
-
-    compare(array, base, base+1);
-    compare(array, base+2, base+3);
-    compare(array, base, base+2);
-    compare(array, base+1, base+3);
-    compare(array, base+1, base+2);
-
-    
-
-  }
-
+void compare_8(uint8_t* array, uint8_t merge_8)
+{
   compare(array, merge_8, merge_8+4);
   compare(array, merge_8+2, merge_8+6);
   compare(array, merge_8+2, merge_8+4);
@@ -97,31 +34,22 @@ void batcher_non_recursive(uint8_t* array)
   compare(array, merge_8+1, merge_8+2);
   compare(array, merge_8+3, merge_8+4);
   compare(array, merge_8+5, merge_8+6);
+}
 
-
-  compare(array, merge_16, merge_16+8);
-  compare(array, merge_16+4, merge_16+12);
-  compare(array, merge_16+4, merge_16+8);
-  compare(array, merge_16+2, merge_16+10);
-  compare(array, merge_16+6, merge_16+14);
-  compare(array, merge_16+6, merge_16+10);
-  compare(array, merge_16+2, merge_16+4);
-  compare(array, merge_16+6, merge_16+8);
-  compare(array, merge_16+10, merge_16+12);
-
-  merge_16 += 1;
-
-  compare(array, merge_16, merge_16+8);
-  compare(array, merge_16+4, merge_16+12);
-  compare(array, merge_16+4, merge_16+8);
-  compare(array, merge_16+2, merge_16+10);
-  compare(array, merge_16+6, merge_16+14);
-  compare(array, merge_16+6, merge_16+10);
-  compare(array, merge_16+2, merge_16+4);
-  compare(array, merge_16+6, merge_16+8);
-  compare(array, merge_16+10, merge_16+12);
-
-  merge_16 = 16;
+void compare_16(uint8_t* array, uint8_t merge_16, uint8_t merge_16_for)
+{
+  for(int i=0; i<2; i++)
+  {
+    compare(array, i+merge_16, i+merge_16+8);
+    compare(array, i+merge_16+4, i+merge_16+12);
+    compare(array, i+merge_16+4, i+merge_16+8);
+    compare(array, i+merge_16+2, i+merge_16+10);
+    compare(array, i+merge_16+6, i+merge_16+14);
+    compare(array, i+merge_16+6, i+merge_16+10);
+    compare(array, i+merge_16+2, i+merge_16+4);
+    compare(array, i+merge_16+6, i+merge_16+8);
+    compare(array, i+merge_16+10, i+merge_16+12);
+  }
 
   compare(array, merge_16_for+1, merge_16_for+2);
   compare(array, merge_16_for+3, merge_16_for+4);
@@ -130,7 +58,10 @@ void batcher_non_recursive(uint8_t* array)
   compare(array, merge_16_for+9, merge_16_for+10);
   compare(array, merge_16_for+11, merge_16_for+12);
   compare(array, merge_16_for+13, merge_16_for+14); 
+}
 
+void compare_32(uint8_t* array)
+{
   #pragma unroll
   for(int merge_32=0; merge_32<2; merge_32++)
     {
@@ -169,11 +100,46 @@ void batcher_non_recursive(uint8_t* array)
   {
     compare(array, i, i+1);
   }
+}
 
+void batcher_non_recursive(uint8_t* array)
+{
+  uint8_t merge_8, merge_16, merge_16_for, merge_32, base = 0;
+  merge_8 = 0;
+  merge_16 = 0;
+  merge_16_for = 0;
+  merge_32 = 0;
+  base = 0;
+
+  #pragma unroll
+  for(int base=0; base<32; base += 4)
+  {
+    if(base != 0 && base%8 == 0)
+    {
+      compare_8(array, merge_8);
+      merge_8 += 8;
+    }
+
+    if(merge_8 != 0 && base%16 == 0)
+    {
+
+      compare_16(array, merge_16, merge_16_for);
+      merge_16 = 16;
+      merge_16_for += 16;
+    }
+
+  compare_4(array, base);
+    
+
+  }
+
+  compare_8(array, merge_8);
+  compare_16(array, merge_16, merge_16_for);
+  compare_32(array);
 
 }
 
-void media_filter_scalar(int imgHeight, int imgWidth, int imgWidthF,
+void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
 			   uint8_t *imgSrcExt, uint8_t *imgDst)
 {
   for(int row=0; row<imgHeight; row++)

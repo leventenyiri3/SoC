@@ -2,66 +2,91 @@
 #include <stdio.h>
 #include "stdbool.h"
 #include <cstring>
+#include <emmintrin.h>
+#include <nmmintrin.h>
 #include <immintrin.h>
-
-
-__m256i gather_bytes_manual(const uint8_t* memory, const uint32_t* indices) {
-    uint8_t temp[32];
-    for (int i = 0; i < 32; i++) {
-        temp[i] = memory[indices[i]];
-    }
-    return _mm256_loadu_si256((__m256i*)temp);
-}
-
-void batcher()
-{
-  
-
-
-}
-
-
+ 
 void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
 			   uint8_t *imgSrcExt, uint8_t *imgDst)
 {
-  for(int row=0; row<imgHeight; row++)
-  {
-    for(int col=0; col<imgWidthF; col++)
+  __m256i load_data1_1, load_data1_2, max_values_1, min_values_1;
+  __m256i load_data2_1, load_data2_2, max_values_2, min_values_2;
+
+
+  __m256i load_data1, load_data2;
+  __m256i max_values[16] = {};
+  __m256i min_values[16] = {};
+
+  uint32_t index = 0;
+
+  //min_values[0] = 0
+  //max_values[0] = 1
+  //min_values[1] = 2
+  //max_values[1] = 3
+#pragma omp parallel for
+	for (int32_t row=0; row<imgHeight; row++)
+	{
+		int32_t wr_base = row*imgWidth*3;
+		int32_t rd_base = row*imgWidthF*3;
+
+		for (int32_t col=0; col<(imgWidth*3); col=col+32)
     {
-      uint8_t r_vals[25], g_vals[25], b_vals[25];
-			int rd_offset;
 
       for(int fy=0; fy<5; fy++)
       {
         for(int fx=0; fx<5; fx++)
         {
-          rd_offset = ((row+fy)*imgWidthF + (col+fx))*3;
-          int idx = fy*5+fx;
 
-          r_vals[idx] = *(imgSrcExt + rd_offset + 0);
-          g_vals[idx] = *(imgSrcExt + rd_offset + 1);
-          b_vals[idx] = *(imgSrcExt + rd_offset + 2);
-        }
-      }
-      uint8_t padded_r[32], padded_g[32], padded_b[32];
-      memcpy(padded_r, r_vals, 25);
-      memset(padded_r + 25, 255, 7);
-      memcpy(padded_g, g_vals, 25);
-      memset(padded_g + 25, 255, 7);
-      memcpy(padded_b, b_vals, 25);
-      memset(padded_b + 25, 255, 7);
 
-      batcher_non_recursive(padded_r);
-      batcher_non_recursive(padded_g);
-      batcher_non_recursive(padded_b);
 
-			int wr_offset;
-			wr_offset = row*imgWidth*3 + col*3;
-      
-      *(imgDst + wr_offset + 0) = padded_r[12];
-      *(imgDst + wr_offset + 1) = padded_g[12];
-      *(imgDst + wr_offset + 2) = padded_b[12];
+  load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index));
+  load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3));
+  
+  min_values[0] = _mm256_min_epu8(load_data1, load_data2);
+  max_values[0] = _mm256_max_epu8(load_data1, load_data2); //0-1 
 
-    }
-  }
+  index = index + 2*3;
+
+  load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index));
+  load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3)); 
+
+  min_values[1] = _mm256_min_epu8(load_data1, load_data2);
+  max_values[1] = _mm256_max_epu8(load_data1, load_data2); //2-3
+
+  min_values[0] = _mm256_min_epu8(min_values[0], min_values[1]);
+  min_values[1] = _mm256_max_epu8(min_values[0], min_values[1]); //0-2
+  
+  max_values[0] = _mm256_min_epu8(max_values[0], max_values[1]); 
+  max_values[1] = _mm256_max_epu8(max_values[0], max_values[1]); //1-3
+
+  max_values[0] = _mm256_min_epu8(max_values[0], min_values[1]);
+  min_values[1] = _mm256_max_epu8(max_values[0], min_values[1]); //1-2
+
+// ezután következő 4 érték 
+  
+  index = index + 4*3; //tuti hogy nem így kell, hanem fx fy-al megindexelni
+
+  load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index));
+  load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3));
+  
+  min_values[2] = _mm256_min_epu8(load_data1, load_data2);
+  max_values[2] = _mm256_max_epu8(load_data1, load_data2); //4-5 
+
+  index = index + 2*3;
+
+  load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index));
+  load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3)); 
+
+  min_values[3] = _mm256_min_epu8(load_data1, load_data2);
+  max_values[3] = _mm256_max_epu8(load_data1, load_data2); //6-7
+
+  min_values[2] = _mm256_min_epu8(min_values[0], min_values[1]);
+  min_values[3] = _mm256_max_epu8(min_values[0], min_values[1]); //4-6
+  
+  max_values[2] = _mm256_min_epu8(max_values[0], max_values[1]); 
+  max_values[3] = _mm256_max_epu8(max_values[0], max_values[1]); //5-7
+
+  max_values[2] = _mm256_min_epu8(max_values[0], min_values[1]);
+  min_values[3] = _mm256_max_epu8(max_values[0], min_values[1]); //5-6
+
 }
