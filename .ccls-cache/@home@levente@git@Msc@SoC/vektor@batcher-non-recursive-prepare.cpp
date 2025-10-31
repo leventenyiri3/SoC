@@ -5,6 +5,18 @@
 int num_of_compare4,num_of_compare8,num_of_compare16,num_of_compare32 = 0;
 void compare(uint8_t* array, int i, int j)
 {
+
+  uint8_t test_array[32];
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
+
+  if (test_array[i]>test_array[j])
+  {
+    uint8_t tmp = test_array[i];
+    test_array[i] = test_array[j];
+    test_array[j] = tmp;
+  }
+
   if (array[i]>array[j])
   {
     uint8_t tmp = array[i];
@@ -12,16 +24,31 @@ void compare(uint8_t* array, int i, int j)
     array[j] = tmp;
   }
 
+
 }
 
 
 void compare_4(uint8_t* array, uint8_t base)
 {
+  uint8_t test_array[32];
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
+
   compare(array, base, base+1);
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
   compare(array, base+2, base+3);
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
   compare(array, base, base+2);
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
   compare(array, base+1, base+3);
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
   compare(array, base+1, base+2);
+  for(int i=0; i<32; i++)
+    test_array[i] = array[i];
   num_of_compare4++;
 }
 
@@ -149,6 +176,15 @@ void batcher_non_recursive(uint8_t* array)
   printf("After sorting:\n");
   for(int i=0; i<32; i++)
     printf("%d ", inner_array[i]);
+
+  printf("\n");
+  printf("Number of compare4-s: %d", num_of_compare4);
+  printf("\n");
+  printf("Number of compare8-s: %d", num_of_compare8);
+  printf("\n");
+  printf("Number of compare16-s: %d", num_of_compare16);
+  printf("\n");
+  printf("Number of compare32-s: %d", num_of_compare32);
 }
 
 

@@ -2,7 +2,7 @@
 CXX = g++
 
 # Pre-compiler and Compiler flags
-CXX_FLAGS := -Wall -Wextra -std=c++17 -O3 -ggdb -fopenmp
+CXX_FLAGS := -Wall -mavx2 -Wextra -std=c++17 -O3 -ggdb -fopenmp
 PRE_FLAGS := -MMD -MP
 
 # Project directory structure
@@ -25,7 +25,7 @@ INC_DIRS := $(INC) $(shell find $(SRC) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 # Construct build output and dependency filenames
-SRCS := $(shell find $(SRC) -name *.cpp)
+SRCS := $(shell find $(SRC) -name '.ccls-cache' -prune -o -name '*.cpp' -print)
 OBJS := $(subst $(SRC)/,$(BUILD)/,$(addsuffix .o,$(basename $(SRCS))))
 DEPS := $(OBJS:.o=.d)
 

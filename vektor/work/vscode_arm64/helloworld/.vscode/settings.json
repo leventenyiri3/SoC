@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/workspaces/vscode_arm64/helloworld",
+            "binaryPath": "/workspaces/vscode_arm64/helloworld/hello",
+            "binaryArgs": []
+        }
+    ]
+}

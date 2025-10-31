@@ -62,7 +62,7 @@ void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
   max_values[0] = _mm256_min_epu8(max_values[0], min_values[1]);
   min_values[1] = _mm256_max_epu8(max_values[0], min_values[1]); //1-2
 
-// ezután következő 4 érték 
+//  
   
   index = index + 4*3; //tuti hogy nem így kell, hanem fx fy-al megindexelni
 

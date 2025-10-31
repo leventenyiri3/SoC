@@ -3,6 +3,8 @@
 #include "stdbool.h"
 #include <cstring>
 
+
+
 void compare(uint8_t* array, int i, int j)
 {
   if (array[i]>array[j])
@@ -21,6 +23,7 @@ void compare_4(uint8_t* array, uint8_t base)
   compare(array, base, base+2);
   compare(array, base+1, base+3);
   compare(array, base+1, base+2);
+
 }
 
 void compare_8(uint8_t* array, uint8_t merge_8)
@@ -34,10 +37,11 @@ void compare_8(uint8_t* array, uint8_t merge_8)
   compare(array, merge_8+1, merge_8+2);
   compare(array, merge_8+3, merge_8+4);
   compare(array, merge_8+5, merge_8+6);
+
 }
 
 void compare_16(uint8_t* array, uint8_t merge_16, uint8_t merge_16_for)
-{
+{  
   for(int i=0; i<2; i++)
   {
     compare(array, i+merge_16, i+merge_16+8);
