@@ -39,12 +39,12 @@ void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
 	for (int32_t row=0; row<imgHeight; row++)
 	{
 
-		for (int32_t col=0; col<imgWidthF; col=col+32)
+		for (int32_t col=0; col<imgWidthF*3; col=col+32)
     {
 
       index = 0;
       int fy = 0;
-      int32_t rd_offset = ((row+fy)*imgWidthF + (col))*3;
+      int32_t rd_offset = ((row+fy)*imgWidthF + (col));
 
       __m256i load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
       __m256i load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + 3 + rd_offset));
@@ -493,10 +493,11 @@ uint32_t compare16 = 0;
 
   
   int wr_offset;
-  wr_offset = row*imgWidth*3 + col*3;
+//  wr_offset = row*imgWidth*3 + col*3;
 
-  __m256i results;
- _mm256_storeu_si256(&results, min_values[6]); 
+  wr_offset = row*imgWidth*3  + col*3;
+  __m256i results = min_values[6];
+// _mm256_storeu_si256(&results, min_values[6]); 
  _mm256_store_si256((__m256i*)(imgDst + wr_offset), results);
 }
 
