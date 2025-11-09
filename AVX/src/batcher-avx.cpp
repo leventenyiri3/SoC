@@ -17,490 +17,235 @@ inline void compare_exchange(__m256i &a, __m256i &b) {
 void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
 			   uint8_t *imgSrcExt, uint8_t *imgDst)
 {
-  __m256i load_data1_1, load_data1_2, max_values_1, min_values_1;
-  __m256i load_data2_1, load_data2_2, max_values_2, min_values_2;
+  __m256i load_data[2] = {};
+  __m256i switched_values[25];
 
 
-  __m256i load_data1, load_data2;
-  __m256i max_values[16] = {};
-  __m256i min_values[16] = {};
 
-  uint32_t index = 0;
-  
-  __m256i broadcasted_255 = _mm256_set1_epi8(0xFF);
-
-  //min_values[0] = 0
-  //max_values[0] = 1
-  //min_values[1] = 2
-  //max_values[1] = 3
-
-
-//#pragma omp parallel for
-	for (int32_t row=0; row<imgHeight; row++)
-	{
-
-		for (int32_t col=0; col<imgWidthF*3; col=col+32)
+  for (int32_t row=0; row<imgHeight; row++)
+  {
+    for(int32_t col=0; col<imgWidthF*3; col = col + 32)
     {
+      uint32_t switched_value_idx = 0;
 
-      index = 0;
-      int fy = 0;
-      int32_t rd_offset = ((row+fy)*imgWidthF + (col));
+//      uint32_t fy = 0;
 
-      __m256i load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-      __m256i load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + 3 + rd_offset));
+      uint32_t component_offset = 0;
+
+      int32_t rd_offset = ((row)*imgWidthF*3 + col);
+      
+
+      while(switched_value_idx  < 24)
+      {
+        load_data[0] = _mm256_lddqu_si256((__m256i*)(imgSrcExt + component_offset + rd_offset));
+         
+        if(component_offset + 3 <= 12)
+        {
+           component_offset += 3;
+        }
+        else
+        {
+           component_offset = 0;
+           rd_offset += imgWidthF*3;
+        }
+          
+        load_data[1] = _mm256_lddqu_si256((__m256i*)(imgSrcExt + component_offset + rd_offset));
+
+
+        if(component_offset + 3 <= 12)
+        {
+           component_offset += 3;
+        }
+        else
+        {
+           component_offset = 0;
+           rd_offset += imgWidthF*3;
+        }
+
+        compare_exchange(load_data[0], load_data[1]);
+        switched_values[switched_value_idx] = load_data[0];
+        switched_value_idx++;
+        switched_values[switched_value_idx] = load_data[1];
+        switched_value_idx++;
+
+
+        if(switched_value_idx % 4 == 0)
+        {
+          compare_exchange(switched_values[switched_value_idx-4], switched_values[switched_value_idx-2]); // 0-2, 4-6, 8-10, 12-14, 16-18, 20-22
+          compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-1]); // 1-3, 5-7, 9-11, 13-15, 17-19, 21-23
+          compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-2]); // 1-2, 4-5, 8-9, 12-13, 16-17, 20-21
+        }
+
+        if(switched_value_idx % 8 == 0)
+        {
+          compare_exchange(switched_values[switched_value_idx-8], switched_values[switched_value_idx-4]); // 0-4, 8-12, 16-20, 24-28
+          compare_exchange(switched_values[switched_value_idx-6], switched_values[switched_value_idx-2]); // 2-6, 10-14, 18-22, 26-30
+          compare_exchange(switched_values[switched_value_idx-6], switched_values[switched_value_idx-4]); // 2-4, 10-12, 18-20, 26-28
+
+          compare_exchange(switched_values[switched_value_idx-7], switched_values[switched_value_idx-3]); // 1-5, 9-13, 17-21, 25-29
+          compare_exchange(switched_values[switched_value_idx-5], switched_values[switched_value_idx-1]); // 3-7, 11-15, 19-23, 27-31
+          compare_exchange(switched_values[switched_value_idx-5], switched_values[switched_value_idx-3]); // 3-5, 11-13, 19-21, 27-29
+
+          compare_exchange(switched_values[switched_value_idx-7], switched_values[switched_value_idx-6]); // 1-2, 9-10, 17-18, 25-26
+          compare_exchange(switched_values[switched_value_idx-5], switched_values[switched_value_idx-4]); // 3-4, 11-12, 19-20, 27-28
+          compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-2]); // 5-6, 13-14, 21-22, 29-30
+        }
+        
+        if(switched_value_idx % 16 == 0) //itt majd kell még a ciklus után egy részlegest csinálni-bár nem biztos, meglátjuk
+        {
+          compare_exchange(switched_values[switched_value_idx-16], switched_values[switched_value_idx-8]); // 0-8
+          compare_exchange(switched_values[switched_value_idx-12], switched_values[switched_value_idx-4]); // 4-12
+          compare_exchange(switched_values[switched_value_idx-12], switched_values[switched_value_idx-8]); // 4-8
+       
+          compare_exchange(switched_values[switched_value_idx-14], switched_values[switched_value_idx-6]); // 2-10
+          compare_exchange(switched_values[switched_value_idx-10], switched_values[switched_value_idx-2]); // 6-14 
+          compare_exchange(switched_values[switched_value_idx-10], switched_values[switched_value_idx-6]); // 6-10 
+
+          compare_exchange(switched_values[switched_value_idx-14], switched_values[switched_value_idx-12]); // 2-4 
+          compare_exchange(switched_values[switched_value_idx-10], switched_values[switched_value_idx-8]); // 6-8 
+          compare_exchange(switched_values[switched_value_idx-6], switched_values[switched_value_idx-4]); // 10-12 
+
+          compare_exchange(switched_values[switched_value_idx-15], switched_values[switched_value_idx-7]); // 0-9
+          compare_exchange(switched_values[switched_value_idx-11], switched_values[switched_value_idx-3]); // 5-13
+          compare_exchange(switched_values[switched_value_idx-11], switched_values[switched_value_idx-7]); // 5-9
+       
+          compare_exchange(switched_values[switched_value_idx-13], switched_values[switched_value_idx-5]); // 3-11
+          compare_exchange(switched_values[switched_value_idx-9], switched_values[switched_value_idx-1]); // 7-15 
+          compare_exchange(switched_values[switched_value_idx-9], switched_values[switched_value_idx-5]); // 7-11 
+
+          compare_exchange(switched_values[switched_value_idx-13], switched_values[switched_value_idx-11]); // 3-5 
+          compare_exchange(switched_values[switched_value_idx-9], switched_values[switched_value_idx-7]); // 7-9 
+          compare_exchange(switched_values[switched_value_idx-5], switched_values[switched_value_idx-3]); // 11-13 
+
+          compare_exchange(switched_values[switched_value_idx-15], switched_values[switched_value_idx-14]); // 1-2 
+          compare_exchange(switched_values[switched_value_idx-13], switched_values[switched_value_idx-12]); // 3-4 
+          compare_exchange(switched_values[switched_value_idx-11], switched_values[switched_value_idx-10]); // 5-6 
+          compare_exchange(switched_values[switched_value_idx-9], switched_values[switched_value_idx-8]); // 7-8 
+          compare_exchange(switched_values[switched_value_idx-7], switched_values[switched_value_idx-6]); // 9-10 
+          compare_exchange(switched_values[switched_value_idx-5], switched_values[switched_value_idx-4]); // 11-12 
+          compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-2]); // 13-14 
+        }
+
+
+       }
+
+      //Final compare8
+      
+
+       switched_values[24] = _mm256_lddqu_si256((__m256i*)(imgSrcExt + component_offset + rd_offset));
+
+      compare_exchange(switched_values[20], switched_values[24]);
+      compare_exchange(switched_values[22], switched_values[24]);
+      compare_exchange(switched_values[21], switched_values[24]);
+      compare_exchange(switched_values[23], switched_values[24]);
+
+
+       compare_exchange(switched_values[16], switched_values[20]); // 0-4, 8-12, 16-20, 24-28
+       compare_exchange(switched_values[18], switched_values[22]); // 2-6, 10-14, 18-22, 26-30
+       compare_exchange(switched_values[18], switched_values[20]); // 2-4, 10-12, 18-20, 26-28
+
+       compare_exchange(switched_values[17], switched_values[21]); // 1-5, 9-13, 17-21, 25-29
+       compare_exchange(switched_values[19], switched_values[23]); // 3-7, 11-15, 19-23, 27-31
+       compare_exchange(switched_values[19], switched_values[21]); // 3-5, 11-13, 19-21, 27-29
+
+       compare_exchange(switched_values[17], switched_values[18]); // 1-2, 9-10, 17-18, 25-26
+       compare_exchange(switched_values[19], switched_values[20]); // 3-4, 11-12, 19-20, 27-28
+       compare_exchange(switched_values[21], switched_values[22]); // 5-6, 13-14, 21-22, 29-30
+
+
+
+       //Compare32
+
+       compare_exchange(switched_values[0], switched_values[16]);
+       compare_exchange(switched_values[8], switched_values[24]);
+       compare_exchange(switched_values[8], switched_values[16]);
+
+       compare_exchange(switched_values[4], switched_values[20]);
+       //      compare_exchange(switched_values[12], switched_values[28]);
+       compare_exchange(switched_values[12], switched_values[20]);
+      
+       compare_exchange(switched_values[4], switched_values[8]);
+       compare_exchange(switched_values[12], switched_values[16]);
+       compare_exchange(switched_values[20], switched_values[24]);
+      
+       compare_exchange(switched_values[2], switched_values[18]);
+       //      compare_exchange(switched_values[10], switched_values[26]);
+       compare_exchange(switched_values[8], switched_values[24]);
+       compare_exchange(switched_values[10], switched_values[18]);
      
-      compare_exchange(load_data1, load_data2);
-      min_values[0] = load_data1;
-      max_values[0] = load_data2;  // 0–1
-
-      index += 3 * 2;
-
-      load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + 3 + rd_offset));
-     
-      compare_exchange(load_data1, load_data2);
-      min_values[1] = load_data1;
-      max_values[1] = load_data2;  // 2–3
-
-      compare_exchange(min_values[0], min_values[1]);  // 0–2
-      compare_exchange(max_values[0], max_values[1]);  // 1–3
-      compare_exchange(max_values[0], min_values[1]);  // 1–2
-
-//min_values[2] = 4
-//max_values[2] = 5
-//min_values[3] = 6
-//max_values[3] = 7
-
-      index = index + 3;
+       compare_exchange(switched_values[6], switched_values[22]);       //      compare_exchange(switched_values[switched_value_idx-12], switched_values[switched_value_idx+4]);
       
-      load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-      fy = fy + 1;
-      rd_offset = ((row + fy) * imgWidthF + (col)) * 3;
-
-      index = 0;  // compare with first element in next row
-      load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-
-      compare_exchange(load_data1, load_data2);
-      min_values[2] = load_data1;
-      max_values[2] = load_data2;  // 4–5
-
-      index += 3;
-      load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + 3 + rd_offset));
-
-      compare_exchange(load_data1, load_data2);
-      min_values[3] = load_data1;
-      max_values[3] = load_data2;  // 6–7
-
-      compare_exchange(min_values[2], min_values[3]);  // 4–6
-      compare_exchange(max_values[2], max_values[3]);  // 5–7
-      compare_exchange(max_values[2], min_values[3]);  // 6–7
-
-
-/************************************* COMPARE8 **********************************/
-
-//min_values[0] = 0
-//max_values[0] = 1
-//min_values[1] = 2
-//max_values[1] = 3
-//min_values[2] = 4
-//max_values[2] = 5
-//min_values[3] = 6
-//max_values[3] = 7
-    
-uint32_t compare8 = 0;
-
-
-      compare_exchange(min_values[compare8 + 0], min_values[compare8 + 2]);  // 0–4
-      compare_exchange(min_values[compare8 + 1], min_values[compare8 + 3]);  // 2–6
-      compare_exchange(min_values[compare8 + 1], min_values[compare8 + 2]);  // 2–4
-
-      compare_exchange(max_values[compare8 + 0], max_values[compare8 + 2]);  // 1–5
-      compare_exchange(max_values[compare8 + 1], max_values[compare8 + 3]);  // 3–7
-      compare_exchange(max_values[compare8 + 1], max_values[compare8 + 2]);  // 3–5
-
-      compare_exchange(max_values[compare8 + 0], min_values[compare8 + 1]);  // 1–2
-      compare_exchange(max_values[compare8 + 1], min_values[compare8 + 2]);  // 3–4
-      compare_exchange(max_values[compare8 + 2], min_values[compare8 + 3]);  // 5–6
-
-      compare8 = compare8 + 4;
-
-// COMPARE4
-
-//min_values[4] = 8
-//max_values[4] = 9
-//min_values[5] = 10
-//max_values[5] = 11
-      index = index + 3;
-
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3+rd_offset));
-
-      compare_exchange(load_data1, load_data2);
-      min_values[4] = load_data1;
-      max_values[4] = load_data2;  // 8–9
-
-      fy += 1;
-      index = 0;
-      rd_offset = ((row + fy) * imgWidthF + (col)) * 3;
-
-      load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + 3 + rd_offset));
-
-      compare_exchange(load_data1, load_data2);
-      min_values[5] = load_data1;
-      max_values[5] = load_data2;  // 10–11
-
-      compare_exchange(min_values[4], min_values[5]);  // 8–10
-      compare_exchange(max_values[4], max_values[5]);  // 9–11
-      compare_exchange(max_values[4], min_values[5]);  // 9–10
-   
-
-// COMPARE4
+       compare_exchange(switched_values[14], switched_values[22]);
+       compare_exchange(switched_values[6], switched_values[10]);
+       compare_exchange(switched_values[14], switched_values[18]);
+       //      compare_exchange(switched_values[22], switched_values[26]);
       
-//min_values[6] = 12
-//max_values[6] = 13
-//min_values[7] = 14
-//max_values[7] = 15
-      index = index + 2*3;
-      
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3+rd_offset));
-
-      compare_exchange(load_data1, load_data2);
-      min_values[6] = load_data1;
-      max_values[6] = load_data2;  // 12–13
-
-      index += 3;
-      load_data1 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + rd_offset));
-
-      fy += 1;
-      index = 0;
-      rd_offset = ((row + fy) * imgWidthF + (col)) * 3;
-      load_data2 = _mm256_lddqu_si256((__m256i*)(imgSrcExt + index + 3 + rd_offset));
-
-      compare_exchange(load_data1, load_data2);
-      min_values[7] = load_data1;
-      max_values[7] = load_data2;  // 14–15
-
-      compare_exchange(min_values[6], min_values[7]);  // 12–14
-      compare_exchange(max_values[6], max_values[7]);  // 13–15
-      compare_exchange(max_values[6], min_values[7]);  // 13–14
-
-
-/************************************* COMPARE8 **********************************/
-
-      compare_exchange(min_values[compare8 + 0], min_values[compare8 + 2]); // 0-4
-      compare_exchange(min_values[compare8 + 1], min_values[compare8 + 3]); // 2-6
-      compare_exchange(min_values[compare8 + 1], min_values[compare8 + 2]); // 2-4
-
-      compare_exchange(max_values[compare8 + 0], max_values[compare8 + 2]); // 1-5
-      compare_exchange(max_values[compare8 + 1], max_values[compare8 + 3]); // 3-7
-      compare_exchange(max_values[compare8 + 1], max_values[compare8 + 2]); // 3-5
-
-      compare_exchange(max_values[compare8 + 0], min_values[compare8 + 1]); // 1-2
-      compare_exchange(max_values[compare8 + 1], min_values[compare8 + 2]); // 3-4
-      compare_exchange(max_values[compare8 + 2], min_values[compare8 + 3]); // 5-6
-
-      compare8 = compare8 + 4;
-
-
-/************************************* COMPARE16 **********************************/
-
-//min_values[0] = 0
-//max_values[0] = 1
-//min_values[1] = 2
-//max_values[1] = 3
-//min_values[2] = 4
-//max_values[2] = 5
-//min_values[3] = 6
-//max_values[3] = 7
-//min_values[4] = 8
-//max_values[4] = 9
-//min_values[5] = 10
-//max_values[5] = 11
-//min_values[6] = 12
-//max_values[6] = 13
-//min_values[7] = 14
-//max_values[7] = 15
-uint32_t compare16 = 0;
-      
-      compare_exchange(min_values[compare16 + 0], min_values[compare16 + 4]);
-      compare_exchange(min_values[compare16 + 2], min_values[compare16 + 6]);
-      compare_exchange(min_values[compare16 + 2], min_values[compare16 + 4]);
-
-      compare_exchange(min_values[compare16 + 1], min_values[compare16 + 5]);
-      compare_exchange(min_values[compare16 + 3], min_values[compare16 + 7]);
-      compare_exchange(min_values[compare16 + 3], min_values[compare16 + 5]);
-
-      compare_exchange(min_values[compare16 + 1], min_values[compare16 + 2]);
-      compare_exchange(min_values[compare16 + 3], min_values[compare16 + 4]);
-      compare_exchange(min_values[compare16 + 5], min_values[compare16 + 6]);
-
-      compare_exchange(max_values[compare16 + 0], max_values[compare16 + 4]);
-      compare_exchange(max_values[compare16 + 2], max_values[compare16 + 6]);
-      compare_exchange(max_values[compare16 + 2], max_values[compare16 + 4]);
-
-      compare_exchange(max_values[compare16 + 1], max_values[compare16 + 5]);
-      compare_exchange(max_values[compare16 + 3], max_values[compare16 + 7]);
-      compare_exchange(max_values[compare16 + 3], max_values[compare16 + 5]);
-
-      compare_exchange(max_values[compare16 + 1], max_values[compare16 + 2]);
-      compare_exchange(max_values[compare16 + 3], max_values[compare16 + 4]);
-      compare_exchange(max_values[compare16 + 5], max_values[compare16 + 6]);
-
-      compare_exchange(max_values[compare16 + 0], min_values[compare16 + 1]);
-      compare_exchange(max_values[compare16 + 1], min_values[compare16 + 2]);
-      compare_exchange(max_values[compare16 + 2], min_values[compare16 + 3]);
-      compare_exchange(max_values[compare16 + 3], min_values[compare16 + 4]);
-      compare_exchange(max_values[compare16 + 4], min_values[compare16 + 5]);
-      compare_exchange(max_values[compare16 + 5], min_values[compare16 + 6]);
-      compare_exchange(max_values[compare16 + 6], min_values[compare16 + 7]);
-
-      compare16 = compare16 + 8;
-//COMPARE4
-//min_values[8] = 16
-//max_values[8] = 17
-//min_values[9] = 18
-//max_values[9] = 19
-    
-      index = index + 3;
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3+rd_offset));
-
-      min_values[8] = _mm256_min_epu8(load_data1, load_data2);
-      max_values[8] = _mm256_max_epu8(load_data1, load_data2);  //16-17
-
-      index = index + 2*3;
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3+rd_offset));
-
-      min_values[9] = _mm256_min_epu8(load_data1, load_data2);
-      max_values[9] = _mm256_max_epu8(load_data1, load_data2);  //18-19
-      
-      compare_exchange(min_values[8], min_values[9]);
-      compare_exchange(max_values[8], max_values[9]);
-      compare_exchange(max_values[8], min_values[9]);
-
-//COMPARE4
-//min_values[10] = 20
-//max_values[10] = 21
-//min_values[11] = 22
-//max_values[11] = 23
-    
-      fy = fy + 1;
-      index = 0;
-      rd_offset = ((row+fy)*imgWidthF + (col))*3;
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3+rd_offset));
-
-      min_values[10] = _mm256_min_epu8(load_data1, load_data2);
-      max_values[10] = _mm256_max_epu8(load_data1, load_data2);  //20-21
-
-      index = index + 2*3;
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-      load_data2 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+3+rd_offset));
-
-      min_values[11] = _mm256_min_epu8(load_data1, load_data2);
-      max_values[11] = _mm256_max_epu8(load_data1, load_data2);  //22-23
-      
-      compare_exchange(min_values[10], min_values[11]);
-      compare_exchange(max_values[10], max_values[11]);
-      compare_exchange(max_values[10], min_values[11]);
-
-/************************************* COMPARE8 **********************************/
-
-      compare_exchange(min_values[compare8+0], min_values[compare8+2]);
-      compare_exchange(min_values[compare8+1], min_values[compare8+3]);
-      compare_exchange(min_values[compare8+1], min_values[compare8+2]);
-
-      compare_exchange(max_values[compare8+0], max_values[compare8+2]);
-      compare_exchange(max_values[compare8+1], max_values[compare8+3]);
-      compare_exchange(max_values[compare8+1], max_values[compare8+2]);
-
-      compare_exchange(max_values[compare8+0], min_values[compare8+1]);
-      compare_exchange(max_values[compare8+1], min_values[compare8+2]);
-      compare_exchange(max_values[compare8+2], min_values[compare8+3]);
-      
-      compare8 = compare8 + 4;
-    
-//COMPARE4
-//min_values[12] = 24
-//max_values[12] = 25
-//min_values[13] = 26
-//max_values[13] = 27
-
-      index = index + 3;
-      load_data1 = _mm256_lddqu_si256((__m256i *)(imgSrcExt+index+rd_offset));
-
-      min_values[12] = _mm256_min_epu8(load_data1, broadcasted_255);
-      max_values[12] = broadcasted_255;
-      min_values[13] = broadcasted_255;
-      max_values[13] = broadcasted_255;
-      min_values[14] = broadcasted_255;
-      max_values[14] = broadcasted_255;
-      min_values[15] = broadcasted_255;
-      max_values[15] = broadcasted_255; //31
-      
-
-/************************************* COMPARE8 **********************************/
-
-      compare_exchange(min_values[compare8+0], min_values[compare8+2]);
-      compare_exchange(min_values[compare8+1], min_values[compare8+3]);
-      compare_exchange(min_values[compare8+1], min_values[compare8+2]);
-
-      compare_exchange(max_values[compare8+0], max_values[compare8+2]);
-      compare_exchange(max_values[compare8+1], max_values[compare8+3]);
-      compare_exchange(max_values[compare8+1], max_values[compare8+2]);
-
-      compare_exchange(max_values[compare8+0], min_values[compare8+1]);
-      compare_exchange(max_values[compare8+1], min_values[compare8+2]);
-      compare_exchange(max_values[compare8+2], min_values[compare8+3]);
-      
-      compare8 = compare8 + 4;
-
-      
-/************************************* COMPARE16 **********************************/
-
-//min_values[8] = 16
-//max_values[8] = 17
-//min_values[9] = 18
-//max_values[9] = 19
-//min_values[10] = 20
-//max_values[10] = 21
-//min_values[11] = 22
-//max_values[11] = 23
-//min_values[12] = 24
-//max_values[12] = 25
-//min_values[13] = 26
-//max_values[13] = 27
-//min_values[14] = 28
-//max_values[14] = 29
-//min_values[15] = 30
-//max_values[15] = 31
-      
-      compare_exchange(min_values[compare16+0], min_values[compare16+4]);
-      compare_exchange(min_values[compare16+2], min_values[compare16+6]);
-      compare_exchange(min_values[compare16+2], min_values[compare16+4]);
-
-      compare_exchange(min_values[compare16+1], min_values[compare16+5]);
-      compare_exchange(min_values[compare16+3], min_values[compare16+7]);
-      compare_exchange(min_values[compare16+3], min_values[compare16+5]);
-
-      compare_exchange(min_values[compare16+1], min_values[compare16+2]);
-      compare_exchange(min_values[compare16+3], min_values[compare16+4]);
-      compare_exchange(min_values[compare16+5], min_values[compare16+6]);
-
-      compare_exchange(max_values[compare16+0], max_values[compare16+4]);
-      compare_exchange(max_values[compare16+2], max_values[compare16+6]);
-      compare_exchange(max_values[compare16+2], max_values[compare16+4]);
-
-      compare_exchange(max_values[compare16+1], max_values[compare16+5]);
-      compare_exchange(max_values[compare16+3], max_values[compare16+7]);
-      compare_exchange(max_values[compare16+3], max_values[compare16+5]);
-
-      compare_exchange(max_values[compare16+1], max_values[compare16+2]);
-      compare_exchange(max_values[compare16+3], max_values[compare16+4]);
-      compare_exchange(max_values[compare16+5], max_values[compare16+6]);
-
-      compare_exchange(max_values[compare16+0], min_values[compare16+1]);
-      compare_exchange(max_values[compare16+1], min_values[compare16+2]);
-      compare_exchange(max_values[compare16+2], min_values[compare16+3]);
-      compare_exchange(max_values[compare16+3], min_values[compare16+4]);
-      compare_exchange(max_values[compare16+4], min_values[compare16+5]);
-      compare_exchange(max_values[compare16+5], min_values[compare16+6]);
-      compare_exchange(max_values[compare16+6], min_values[compare16+7]);
-
-      compare16 = compare16 + 8;
-
-/************************************* COMPARE32 **********************************/
-
-      // Min values
-      compare_exchange(min_values[0],  min_values[8]);
-      compare_exchange(min_values[4],  min_values[12]);
-      compare_exchange(min_values[4],  min_values[8]);
-
-      compare_exchange(min_values[2],  min_values[10]);
-      compare_exchange(min_values[6],  min_values[14]);
-      compare_exchange(min_values[6],  min_values[10]);
-
-      compare_exchange(min_values[2],  min_values[4]);
-      compare_exchange(min_values[6],  min_values[8]);
-      compare_exchange(min_values[10], min_values[12]);
-
-      compare_exchange(min_values[1],  min_values[9]);
-      compare_exchange(min_values[5],  min_values[13]);
-      compare_exchange(min_values[4],  min_values[12]);
-      compare_exchange(min_values[5],  min_values[9]);
-
-      compare_exchange(min_values[3],  min_values[11]);
-      compare_exchange(min_values[7],  min_values[15]);
-      compare_exchange(min_values[7],  min_values[11]);
-      compare_exchange(min_values[3],  min_values[5]);
-      compare_exchange(min_values[7],  min_values[9]);
-      compare_exchange(min_values[11], min_values[13]);
-
-      compare_exchange(min_values[1],  min_values[2]);
-      compare_exchange(min_values[3],  min_values[4]);
-      compare_exchange(min_values[5],  min_values[6]);
-      compare_exchange(min_values[7],  min_values[8]);
-      compare_exchange(min_values[9],  min_values[10]);
-      compare_exchange(min_values[11], min_values[12]);
-      compare_exchange(min_values[13], min_values[14]);
-
-      // Max values
-      compare_exchange(max_values[0],  max_values[8]);
-      compare_exchange(max_values[4],  max_values[12]);
-      compare_exchange(max_values[4],  max_values[8]);
-
-      compare_exchange(max_values[2],  max_values[10]);
-      compare_exchange(max_values[6],  max_values[14]);
-      compare_exchange(max_values[6],  max_values[10]);
-
-      compare_exchange(max_values[2],  max_values[4]);
-      compare_exchange(max_values[6],  max_values[8]);
-      compare_exchange(max_values[10], max_values[12]);
-
-      compare_exchange(max_values[1],  max_values[9]);
-      compare_exchange(max_values[5],  max_values[13]);
-      compare_exchange(max_values[4],  max_values[12]);
-      compare_exchange(max_values[5],  max_values[9]);
-
-      compare_exchange(max_values[3],  max_values[11]);
-      compare_exchange(max_values[7],  max_values[15]);
-      compare_exchange(max_values[7],  max_values[11]);
-      compare_exchange(max_values[3],  max_values[5]);
-      compare_exchange(max_values[7],  max_values[9]);
-      compare_exchange(max_values[11], max_values[13]);
-
-      compare_exchange(max_values[1],  max_values[2]);
-      compare_exchange(max_values[3],  max_values[4]);
-      compare_exchange(max_values[5],  max_values[6]);
-      compare_exchange(max_values[7],  max_values[8]);
-      compare_exchange(max_values[9],  max_values[10]);
-      compare_exchange(max_values[11], max_values[12]);
-      compare_exchange(max_values[13], max_values[14]);
-
-
-     for(int i=0; i<14; i++)
-    {
-      compare_exchange(max_values[i], min_values[i+1]);
-    }
-
-
-  
-
-
-  
-  int wr_offset;
-//  wr_offset = row*imgWidth*3 + col*3;
-
-  wr_offset = row*imgWidth*3  + col*3;
-  __m256i results = min_values[6];
-// _mm256_storeu_si256(&results, min_values[6]); 
- _mm256_store_si256((__m256i*)(imgDst + wr_offset), results);
+       compare_exchange(switched_values[2], switched_values[4]);
+       compare_exchange(switched_values[6], switched_values[8]);
+       compare_exchange(switched_values[10], switched_values[12]);
+       compare_exchange(switched_values[14], switched_values[16]);
+       compare_exchange(switched_values[18], switched_values[20]);
+       compare_exchange(switched_values[22], switched_values[24]);
+
+
+       compare_exchange(switched_values[1], switched_values[17]);
+//       compare_exchange(switched_values[9], switched_values[25]);
+       compare_exchange(switched_values[9], switched_values[17]);
+ 
+       compare_exchange(switched_values[5], switched_values[21]);
+       //      compare_exchange(switched_values[13], switched_values[29]);
+       compare_exchange(switched_values[13], switched_values[21]);
+
+       compare_exchange(switched_values[5], switched_values[9]);
+       compare_exchange(switched_values[13], switched_values[17]);
+      // compare_exchange(switched_values[21], switched_values[25]);
+
+       compare_exchange(switched_values[3], switched_values[19]);
+       //      compare_exchange(switched_values[11], switched_values[27]);
+       //compare_exchange(switched_values[9], switched_values[25]);
+       compare_exchange(switched_values[11], switched_values[19]);
+
+       compare_exchange(switched_values[7], switched_values[23]);
+       //      compare_exchange(switched_values[15], switched_values[31]);
+       compare_exchange(switched_values[15], switched_values[23]);
+       compare_exchange(switched_values[7], switched_values[11]);
+       compare_exchange(switched_values[15], switched_values[19]);
+       //      compare_exchange(switched_values[23], switched_values[27]);
+
+       compare_exchange(switched_values[3], switched_values[5]);
+       compare_exchange(switched_values[7], switched_values[9]);
+       compare_exchange(switched_values[11], switched_values[13]);
+       compare_exchange(switched_values[15], switched_values[17]);
+       compare_exchange(switched_values[19], switched_values[21]);
+       //compare_exchange(switched_values[23], switched_values[25]);
+
+
+       for(int i=0; i<24; i=i+2)
+       {
+        compare_exchange(switched_values[i+1], switched_values[i+2]);
+       }
+      int wr_offset;
+
+      wr_offset = row*imgWidth*3 + col;
+//      printf("Writing to imgDst[%d .. %d]\n", wr_offset, wr_offset + 31);
+      __m256i results = switched_values[12];
+      _mm256_storeu_si256((__m256i*)(imgDst + wr_offset), results);
+     }
+   }
 }
 
-}
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
