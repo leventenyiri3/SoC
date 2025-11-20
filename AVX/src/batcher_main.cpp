@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
 	elapsed = ts_end - ts_start;
 
 	perf = 1000.0*double(imgHeight*imgWidth)*double(number_of_runs_vector)/elapsed;
-	printf("CPU AVX_ULOAD time: %f ms, MPixels/s: %f\n", (elapsed/1000000.0), perf);
+	printf("CPU AVX time: %f ms, MPixels/s: %f\n", (elapsed/1000000.0), perf);
 #endif
 #endif
 
