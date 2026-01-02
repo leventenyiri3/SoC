@@ -73,7 +73,7 @@ void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
         {
           compare_exchange(switched_values[switched_value_idx-4], switched_values[switched_value_idx-2]); // 0-2, 4-6, 8-10, 12-14, 16-18, 20-22
           compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-1]); // 1-3, 5-7, 9-11, 13-15, 17-19, 21-23
-          compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-2]); // 1-2, 4-5, 8-9, 12-13, 16-17, 20-21
+          compare_exchange(switched_values[switched_value_idx-3], switched_values[switched_value_idx-2]); // 1-2, 5-6, 9-10, 13-14, 17-18, 21-22
         }
 
         if(switched_value_idx % 8 == 0)
@@ -105,7 +105,7 @@ void media_filter_vector(int imgHeight, int imgWidth, int imgWidthF,
           compare_exchange(switched_values[switched_value_idx-10], switched_values[switched_value_idx-8]); // 6-8 
           compare_exchange(switched_values[switched_value_idx-6], switched_values[switched_value_idx-4]); // 10-12 
 
-          compare_exchange(switched_values[switched_value_idx-15], switched_values[switched_value_idx-7]); // 0-9
+          compare_exchange(switched_values[switched_value_idx-15], switched_values[switched_value_idx-7]); // 1-9
           compare_exchange(switched_values[switched_value_idx-11], switched_values[switched_value_idx-3]); // 5-13
           compare_exchange(switched_values[switched_value_idx-11], switched_values[switched_value_idx-7]); // 5-9
        

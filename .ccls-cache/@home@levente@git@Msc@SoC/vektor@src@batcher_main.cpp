@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef __aarch64__
-#if 1
+#if 0
 	ts_start = get_ts_ns();
 	for (int32_t run=0; run<number_of_runs_vector; run++)
 	{
@@ -180,7 +180,7 @@ int main(int argc, char *argv[])
 #endif
 
 
-#if 1
+#if 0
 	ts_start = get_ts_ns();
 	for (int32_t run=0; run<number_of_runs_vector; run++)
 	{
@@ -198,7 +198,7 @@ int main(int argc, char *argv[])
 	printf("CPU NEON_SH time: %f ms, MPixels/s: %f\n", (elapsed/1000000.0), perf);
 #endif
 
-#if 1
+#if 0
 	ts_start = get_ts_ns();
 	for (int32_t run=0; run<number_of_runs_vector; run++)
 	{
